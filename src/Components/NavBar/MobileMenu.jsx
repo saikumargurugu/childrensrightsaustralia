@@ -1,16 +1,61 @@
+import { Link } from "react-scroll";
+
+const handleScroll = (targetId) => {
+  const targetElement = document.getElementById(targetId);
+  if (targetElement) {
+    targetElement.scrollIntoView({
+      behavior: "smooth", 
+      block: "start", 
+      duration: 3000
+    });
+  }
+};
+
 const MobileMenu = () => (
     <ul className="md:hidden backdrop-blur-md space-y-2 p-4">
       <li>
-        <a href="/" className="block py-2 hover:text-gray-300 text-black font-bold from-neutral-100 hover:border-b-2 transition">Home</a>
+      <Link
+        to="home"
+        onClick={()=>{
+            handleScroll("home");
+        }}
+        className="cursor-pointer block py-2 from-neutral-100 hover:text-gray-300 text-white font-bold hover:border-b-2 transition"
+      >
+        Home
+      </Link>
       </li>
       <li>
-        <a href="/" className="block py-2 hover:text-gray-300 text-black font-bold from-neutral-100 hover:border-b-2 transition">About</a>
+        <Link
+            to="about"
+            onClick={()=>{
+                handleScroll("about");
+            }}
+            className="cursor-pointer block py-2 from-neutral-100 hover:text-gray-300 text-white font-bold  hover:border-b-2 transition"
+            >
+        About
+        </Link>
       </li>
       <li>
-        <a href="/" className="block py-2 hover:text-gray-300 text-black font-bold from-neutral-100 hover:border-b-2 transition">Services</a>
+        <Link
+            to="Services"
+            onClick={()=>{
+                handleScroll("Services");
+            }}
+            className="cursor-pointer block py-2 from-neutral-100 hover:text-gray-300 text-white font-bold  hover:border-b-2 transition"
+            >
+                Services
+        </Link>
       </li>
       <li>
-        <a href="/" className="block py-2 hover:text-gray-300 text-black font-bold from-neutral-100 hover:border-b-2 transition">Contact</a>
+        <Link
+            to="Contact"
+            onClick={()=>{
+                handleScroll("Contact");
+            }}
+            className="cursor-pointer block py-2 from-neutral-100 hover:text-gray-300 text-white font-bold  hover:border-b-2 transition"
+            >
+                Contact
+        </Link>
       </li>
     </ul>
   );

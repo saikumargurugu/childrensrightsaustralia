@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* Apply this to a specific scrollable container */
+.scrollable-container {
+  overflow: scroll;
+}
+
+/* General Scrollbar Styles */
+.scrollable-container::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+/* Track Styles */
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Light gray track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Thumb Styles */
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: #007bff; /* Blue scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Thumb Hover Styles */
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #0056b3; /* Darker blue when hovered */
+}
+
+/* Firefox Scrollbar Styles */
+.scrollable-container {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: #007bff #f0f0f0; /* Thumb color and track color */
+}

@@ -5,7 +5,6 @@ import Home from "./Components/Home/Home";
 import NavBar from "./Components/NavBar";
 import ServicesPage from "./Components/Servics/Servics";
 import ContactPage from "./Components/Contact/Contact";
-import Divider from "./Components/Divider/Divider";
 
 const App = () => {
   const appRef = useRef(null);

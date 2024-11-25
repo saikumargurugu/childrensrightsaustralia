@@ -5,46 +5,65 @@ import Home from "./Components/Home/Home";
 import NavBar from "./Components/NavBar";
 import ServicesPage from "./Components/Servics/Servics";
 import ContactPage from "./Components/Contact/Contact";
+import Divider from "./Components/Divider/Divider";
 
 const App = () => {
   const appRef = useRef(null);
 
+  // Throttle function to limit the scroll event frequency
+  const throttle = (func, delay) => {
+    let lastTime = 0;
+    return function (...args) {
+      const now = new Date().getTime();
+      if (now - lastTime >= delay) {
+        lastTime = now;
+        return func(...args);
+      }
+    };
+  };
+
   useEffect(() => {
     const handleScroll = (e) => {
       const target = e.target.closest("[data-scroll]");
-      console.log(target);
       if (target) return; // Skip scrolling if triggered by react-scroll
-      e.preventDefault(); // Prevent default scrolling behavior
+
+      // Prevent the default scroll behavior (for custom scrolling)
+      e.preventDefault();
+
+      // Adjusting smooth scrolling
       const container = appRef.current;
       if (container) {
-        const scrollAmount = 100; // Adjust for incremental scrolling
-        const direction = e.deltaY > 0 ? 10 : -10; // Determine scroll direction
+        const scrollAmount = 100; // Customize this value as needed
+        const direction = e.deltaY > 0 ? 1 : -1; // Determine scroll direction
+
         container.scrollBy({
-          top: scrollAmount * direction,
+          top: direction * scrollAmount,
           behavior: "smooth",
         });
       }
     };
 
     const container = appRef.current;
-    container.addEventListener("wheel", handleScroll);
+    const throttledHandleScroll = throttle(handleScroll, 100); // 100ms delay for throttling
 
-    return () => container.removeEventListener("wheel", handleScroll);
+    container.addEventListener("wheel", throttledHandleScroll, { passive: false });
+
+    return () => container.removeEventListener("wheel", throttledHandleScroll);
   }, []);
 
   return (
-    <div ref={appRef} className="h-screen scrollable-container ">
+    <div ref={appRef} className="h-screen scrollable-container">
       <NavBar />
-      <div id="home" className="h-screen">
+      <div id="home" className="h-screen pb-1">
         <Home />
       </div>
-      <div id="about" className="h-screen">
+      <div id="about" className="h-screen pb-1">
         <AboutPage />
       </div>
-      <div id="Services" className="h-screen">
+      <div id="Services" className="h-screen pb-1">
         <ServicesPage />
-      </div>{" "}
-      <div id="Contact" className="h-screen">
+      </div>
+      <div id="Contact" className="h-screen pb-1">
         <ContactPage />
       </div>
     </div>

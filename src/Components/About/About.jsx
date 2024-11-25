@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../Theme/ThemeContext";
 
 const AboutPage = () => {
+  const { theme } = useContext(ThemeContext); // Access current theme
+
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
+    <div
+      className={`min-h-screen ${
+        theme === "light" ? "bg-gray-100 text-gray-800" : "bg-gray-900 text-gray-100"
+      }`}
+    >
       {/* Hero Section */}
-      <div className="bg-blue-600 text-white text-center py-16">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
+      <div
+        className={`${
+          theme === "light" ? "bg-blue-600 text-white" : "bg-gray-800 text-gray-100"
+        } text-center py-16`}
+      >
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+         ABOUT CHILDREN'S RIGHTS AUSTRALIA
+        </h1>
         <p className="text-lg md:text-xl max-w-3xl mx-auto">
           Learn more about who we are and how we make a difference.
         </p>
@@ -39,6 +52,39 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Membership Banner */}
+      <section
+        className={`relative ${
+          theme === "light" ? "bg-blue-600 text-white" : "bg-gray-800 text-gray-100"
+        } py-16 px-8 flex justify-center items-center`}
+      >
+        {/* Background Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{
+            backgroundImage: "url('/src/assets/member-banner-bg.jpg')", // Replace with your image path
+          }}
+        ></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl text-center">
+          <h2 className="text-4xl font-bold mb-4">Become a Member Today!</h2>
+          <p className="text-lg mb-8">
+            Join our community to access exclusive benefits, resources, and much
+            more. Take the next step toward achieving your goals with us.
+          </p>
+          <button
+            className={`px-8 py-3 ${
+              theme === "light"
+                ? "bg-white text-blue-600 hover:bg-gray-100"
+                : "bg-gray-700 text-gray-100 hover:bg-gray-600"
+            } font-semibold rounded-lg shadow-md transition`}
+          >
+            Join Now
+          </button>
+        </div>
+      </section>
     </div>
   );
 };

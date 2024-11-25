@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+import ThemeToggle from "../ThemeToggle/ThemeToggleButton";
 
 const handleScroll = (targetId) => {
     const targetElement = document.getElementById(targetId);
@@ -56,6 +57,9 @@ const NavLinks = () => (
             >
                 Contact
         </Link>
+      </li>
+      <li>
+        <ThemeToggle />
       </li>
     </ul>
   );

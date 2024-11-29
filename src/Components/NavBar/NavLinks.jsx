@@ -38,6 +38,17 @@ const NavLinks = () => (
       </li>
       <li>
         <Link
+            to="inquries"
+            onClick={()=>{
+                handleScroll("inquries");
+            }}
+            className="cursor-pointer hover:text-gray-300 text-white font-bold from-neutral-100 hover:border-b-2 transition"
+            >
+        INQUIRIES
+        </Link>
+      </li>
+      <li>
+        <Link
             to="Services"
             onClick={()=>{
                 handleScroll("Services");
@@ -45,6 +56,17 @@ const NavLinks = () => (
             className="cursor-pointer hover:text-gray-300 text-white font-bold from-neutral-100 hover:border-b-2 transition"
             >
                 Services
+        </Link>
+      </li>
+      <li>
+        <Link
+            to="meettheteam"
+            onClick={()=>{
+                handleScroll("meettheteam");
+            }}
+            className="cursor-pointer hover:text-gray-300 text-white font-bold from-neutral-100 hover:border-b-2 transition"
+            >
+                MEET THE TEAM
         </Link>
       </li>
       <li>
@@ -66,3 +88,11 @@ const NavLinks = () => (
   
   export default NavLinks;
   
+
+
+//  Home
+// INQUIRIES
+// About F.R.A.
+// Contact Us
+// GET HELP
+// MEET THE TEAM

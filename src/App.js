@@ -51,18 +51,18 @@ const App = () => {
   }, []);
 
   return (
-    <div ref={appRef} className="h-screen scrollable-container">
+    <div ref={appRef} className=" scrollable-container">
       <NavBar />
-      <div id="home" className="h-screen pb-1">
+      <div id="home" className=" pb-1">
         <Home />
       </div>
-      <div id="about" className="h-screen pb-1">
+      <div id="about" className=" pb-1">
         <AboutPage />
       </div>
-      <div id="Services" className="h-screen pb-1">
+      <div id="Services" className=" pb-1">
         <ServicesPage />
       </div>
-      <div id="Contact" className="h-screen pb-1">
+      <div id="Contact" className=" pb-1">
         <ContactPage />
       </div>
     </div>

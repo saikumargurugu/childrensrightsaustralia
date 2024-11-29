@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../Theme/ThemeContext";
-
 const AboutPage = () => {
   const { theme } = useContext(ThemeContext); // Access current theme
 
